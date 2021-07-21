@@ -1,6 +1,7 @@
-const UserList = function({ users }) {
+const UserList = function({ users, error }) {
     return (
     <div className="UserList">
+      { error }
       <h2>Created users:</h2>
       {users.map(user => 
         <div key={user.id}>

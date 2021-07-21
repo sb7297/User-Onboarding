@@ -7,15 +7,16 @@ import UserList from './components/UserList';
 function App() {
   const [formSubmission, setFormSubmission] = useState(null);
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState("");
  
   useEffect(() => {
     if (formSubmission) {
       axios.post('https://reqres.in/api/users', formSubmission)
         .then(res => {
-          setUsers([ ...users, res.data ]);
+          setUsers(oldUsers => [ ...oldUsers, res.data ]);
         })
         .catch(err => {
-          console.log(err);
+          setError(JSON.stringify(err.toJSON()));
         });
     }
   }, [formSubmission]);
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <Form sendData={setFormSubmission} />
-      <UserList users={users} />
+      <UserList users={users} error={error} />
     </div>
   );
 }

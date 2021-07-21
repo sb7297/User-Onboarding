@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
-const Form = function() {
+const Form = function({ sendData }) {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -61,9 +61,15 @@ const Form = function() {
     });
   }, [form]);
 
+
+  const handleSubmit = ev => {
+    ev.preventDefault();
+    sendData({ ...form });
+  }
+
   return (
     <div className="Form">
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>User name:
         <input value={form.name} name="name" type="text" onChange={handleChange} />
       </label>

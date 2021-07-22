@@ -71,18 +71,18 @@ const Form = function({ sendData }) {
     <div className="Form">
     <form onSubmit={handleSubmit}>
       <label>User name:
-        <input value={form.name} name="name" type="text" onChange={handleChange} />
+        <input value={form.name} name="name" type="text" data-cy="name" onChange={handleChange} />
       </label>
       <label>Email:
-        <input value={form.email} name="email" type="email" onChange={handleChange} />
+        <input value={form.email} name="email" type="email" data-cy="email" onChange={handleChange} />
       </label>
       <label>Password:
-        <input value={form.password} name="password" type="password" onChange={handleChange} />
+        <input value={form.password} name="password" type="password" data-cy="password" onChange={handleChange} />
       </label>
       <label>Accept TOS?
-        <input checked={form.tosCheck} name="tosCheck" type="checkbox" onChange={handleChange} />
+        <input checked={form.tosCheck} name="tosCheck" type="checkbox" data-cy="tosCheck" onChange={handleChange} />
       </label>
-      <button disabled={buttonDisabled}>Submit</button>
+      <button data-cy="submit" disabled={buttonDisabled}>Submit</button>
     </form>
     <div className="errors" style={{color: 'maroon'}}>
       {errors.name.length > 0 && <p>{errors.name}</p>}

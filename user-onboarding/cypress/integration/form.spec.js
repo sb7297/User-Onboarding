@@ -16,7 +16,7 @@ describe('TOS Check', function() {
       .click()
       .should('be.checked');
   })
-})
+});
 
 describe('Form submission', function() {
   it('can be submitted', function() {
@@ -42,7 +42,7 @@ describe('Form submission', function() {
     cy.contains('ID:')
       .should('exist');
   })
-})
+});
 
 describe('Empty submission', function() {
   it("can't submit form if inputs are empty", function() {
@@ -63,7 +63,7 @@ describe('Empty submission', function() {
     cy.get('[data-cy=submit]')
       .should("be.disabled");
   })
-})
+});
 
 describe('Invalid email', function() {
   it("can't submit form if email is invalid", function() {
@@ -87,4 +87,4 @@ describe('Invalid email', function() {
     cy.get(".errors")
       .contains("valid email");
   })
-})
+});

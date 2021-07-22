@@ -37,10 +37,8 @@ describe('Form submission', function() {
       .click();
 
     cy.contains('Name: Naruto Uzumaki')
-      .should('exist');
 
     cy.contains('ID:')
-      .should('exist');
   })
 });
 
